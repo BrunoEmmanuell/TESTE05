@@ -1,0 +1,383 @@
+/* Reset básico e Fonte */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* === Paleta Aprimorada - Foco Comercial === */
+:root {
+ --cor-fundo-body: #f4f7f9; /* Tom de cinza mais suave */
+ --cor-fundo-container: #ffffff;
+ --cor-texto-principal: #343a40; /* Cinza escuro, menos harsh que preto */
+ --cor-texto-secundario: #6c757d;
+ --cor-borda: #e0e5eb; /* Borda mais suave */
+ --cor-destaque-primario: #0056b3; /* Azul primário mais forte */
+ --cor-destaque-secundario: #28a745; /* Verde secundário vibrante */
+ --cor-sucesso: #28a745;
+ --cor-erro: #dc3545;
+ --cor-aviso: #ffc107;
+ --cor-info: #17a2b8; /* Info azulado */
+ --cor-fundo-elemento-hover: #e9ecef;
+ --cor-fundo-input: #ffffff;
+ --cor-texto-input: #495057;
+ --cor-borda-input-focus: #80bdff; /* Foco azul padrão Bootstrap */
+ --cor-sombra-input-focus: rgba(0, 123, 255, 0.25);
+ --cor-fundo-tecnica: #d4edda; /* Verde claro para técnica */
+ --cor-texto-tecnica: #155724;
+ --cor-borda-tecnica: #c3e6cb;
+ --cor-fundo-instrucao: #e2e3e5; /* Cinza claro para instrução */
+ --cor-texto-instrucao: #383d41;
+ --cor-borda-instrucao: #d6d8db;
+ --cor-gradiente-inicio: #0069d9;
+ --cor-gradiente-fim: #0056b3;
+ --cor-gradiente-verde-inicio: #2aaa4b;
+ --cor-gradiente-verde-fim: #218838;
+ --sombra-leve: 0 2px 5px rgba(0,0,0,0.08);
+ --sombra-media: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+html, body { height: 100%; }
+body {
+    background-color: var(--cor-fundo-body);
+    color: var(--cor-texto-principal);
+    padding-top: 30px;
+    padding-bottom: 50px;
+    /* === FONTE POPPINS APLICADA === */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Peso padrão normal */
+    font-style: normal; /* Estilo padrão normal */
+    line-height: 1.6; /* Melhor legibilidade */
+    -webkit-font-smoothing: antialiased; /* Melhora renderização da fonte */
+    -moz-osx-font-smoothing: grayscale;
+}
+.container {
+    max-width: 1140px; margin: 30px auto; width: 95%; /* Um pouco mais largo */
+    background-color: var(--cor-fundo-container); color: var(--cor-texto-principal);
+    padding: 35px 40px; /* Mais padding interno */
+    border-radius: 10px; /* Bordas mais arredondadas */
+    box-shadow: var(--sombra-media);
+    border: 1px solid var(--cor-borda);
+    position: relative; /* Para posicionamento absoluto de #userInfo */
+    border-top: 5px solid var(--cor-destaque-primario); /* Borda superior destacada */
+}
+/* Abas */
+.nav-tabs { border-bottom: 1px solid var(--cor-borda); margin-bottom: 25px; padding-left: 0; /* Sem padding esquerdo */ }
+.nav-tabs .nav-link {
+    color: var(--cor-texto-secundario); background: none;
+    border: 1px solid transparent; border-bottom: none; margin-bottom: -1px;
+    padding: 0.7rem 1.2rem; /* Mais padding */
+    font-size: 1rem; /* Tamanho padrão */
+    font-weight: 500; /* Peso ligeiramente mais forte para abas */
+    transition: all 0.3s ease; /* Transição mais suave */
+    white-space: nowrap; border-radius: 6px 6px 0 0; /* Arredondamento superior */
+}
+.nav-tabs .nav-link:hover {
+    color: var(--cor-destaque-primario); background-color: var(--cor-fundo-elemento-hover);
+    border-color: var(--cor-borda) var(--cor-borda) var(--cor-fundo-elemento-hover);
+}
+.nav-tabs .nav-link.active {
+    color: var(--cor-destaque-primario); background-color: var(--cor-fundo-container);
+    border-color: var(--cor-borda) var(--cor-borda) var(--cor-fundo-container);
+    font-weight: 600; /* Mais destaque */
+}
+/* Container Auth */
+#authDiv { display: block; }
+#authTabsContent { border: 1px solid var(--cor-borda); border-top: none; padding: 25px; border-radius: 0 0 6px 6px; background-color: var(--cor-fundo-container); }
+/* App Principal */
+#mainAppDiv { display: none; }
+#userInfo { position: absolute; top: 20px; right: 30px; font-size: 0.85em; color: var(--cor-texto-secundario); z-index: 10; }
+#userInfo strong { color: var(--cor-texto-principal); font-weight: 600; }
+#userInfo button { font-size: 0.8em; padding: 0.2rem 0.5rem; margin-left: 8px; }
+
+/* Títulos com Estilo Comercial */
+/* Removido #authDiv h1 daqui para poder estilizar separadamente */
+#mainAppDiv h2 {
+  font-weight: 700; /* Mais pesado */
+  color: var(--cor-texto-principal); /* Cor sólida */
+  margin-bottom: 2rem !important;
+  text-align: center; width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cor-borda); /* Linha separadora */
+  letter-spacing: -0.5px; /* Espaçamento leve */
+  font-size: 1.9rem; /* Tamanho um pouco maior */
+}
+/* === ESTILO PARA TÍTULOS (H1, H2, H3) - Negrito e Itálico === */
+h1, h2, h3 {
+    font-weight: 700;  /* 700 é o peso 'bold' para Poppins */
+    font-style: italic; /* Aplica o estilo itálico */
+}
+/* Estilo específico para o H1 do AuthDiv, se necessário separá-lo */
+#authDiv h1 {
+  color: var(--cor-texto-principal);
+  letter-spacing: -0.5px;
+  /* O alinhamento é controlado pelo div que o contém no HTML agora */
+  /* text-align: center; foi removido daqui */
+  /* border-bottom: 1px solid var(--cor-borda); foi removido daqui */
+  /* padding-bottom: 10px; foi removido daqui */
+  /* Ajustes de margem estão no próprio H1 no HTML */
+}
+
+
+/* Mensagens Alerta */
+.msg { margin-top: 15px; padding: 1rem 1.25rem; border-radius: 6px; display: none; border: 1px solid transparent; font-size: 0.95em; }
+.msg.alert-success { background-color: #d4edda; border-color: #c3e6cb; color: #155724; }
+.msg.alert-danger { background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+.msg.alert-warning { background-color: #fff3cd; border-color: #ffeeba; color: #856404; }
+.msg.alert-info { background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+
+/* Formulários Aprimorados */
+.form-control, .form-select {
+    background-color: var(--cor-fundo-input); color: var(--cor-texto-input);
+    border: 1px solid var(--cor-borda); border-radius: 5px; /* Bordas levemente arredondadas */
+    padding: 0.5rem 0.85rem; /* Padding ajustado */
+    font-size: 0.95rem; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control::placeholder { color: var(--cor-texto-secundario); opacity: 0.8; }
+.form-control:focus, .form-select:focus {
+    background-color: var(--cor-fundo-input); color: var(--cor-texto-input);
+    border-color: var(--cor-borda-input-focus);
+    box-shadow: 0 0 0 0.2rem var(--cor-sombra-input-focus); outline: none;
+}
+.form-label { color: var(--cor-texto-principal); font-weight: 500; margin-bottom: 0.4rem; font-size: 0.9em; }
+.form-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236c757d' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
+.form-select option { background-color: var(--cor-fundo-input); color: var(--cor-texto-input); }
+
+/* === ESTILO PARA TÍTULOS DE SEÇÃO H4, H5, H6 - Itálico, mas não negrito === */
+h4, h5, h6 {
+    font-style: italic;
+    /* Mantém o peso definido anteriormente ou padrão */
+}
+h4.section-title { /* Estilo para títulos H4 das seções dos forms */
+    margin-top: 2rem !important; margin-bottom: 1.2rem !important;
+    color: var(--cor-destaque-primario); opacity: 1; font-weight: 600; font-size: 1.25rem; /* Peso 600 */
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--cor-borda);
+    font-style: italic; /* Garante itálico aqui também */
+}
+/* Reduzido margin-bottom para row dentro do modal */
+#cadastro .row, #modalNovaAvaliacao .modal-body .row { margin-bottom: 0.8rem; }
+
+/* Busca Alunos */
+#buscaResultados {
+    margin-top: 15px; max-height: 250px; overflow-y: auto;
+    background-color: #f8f9fa; border: 1px solid var(--cor-borda);
+    padding: 10px; border-radius: 6px;
+}
+.resultado-item {
+    background-color: var(--cor-fundo-container); color: var(--cor-texto-principal);
+    padding: .6rem .9rem; margin-bottom: .5rem; border-radius: 5px;
+    display: flex; justify-content: space-between; align-items: center;
+    border: 1px solid var(--cor-borda); transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+.resultado-item:hover {
+    background-color: var(--cor-fundo-elemento-hover); border-color: var(--cor-destaque-secundario);
+}
+.resultado-item button { font-size: 0.85em; padding: .2rem .5rem; } /* Botão menor */
+
+#alunoSelecionadoInfo {
+    font-weight: 600; margin-top: 20px; margin-bottom: 15px;
+    padding: .9rem 1.1rem; border-radius: 6px; text-align: center;
+    font-size: 1.05rem; transition: background-color 0.3s ease;
+}
+#alunoSelecionadoInfo.alert-success { background-color: var(--cor-sucesso); color: white; border-color: var(--cor-sucesso); box-shadow: var(--sombra-leve); }
+#alunoSelecionadoInfo.alert-secondary { background-color: var(--cor-fundo-elemento-hover); color: var(--cor-texto-secundario); border-color: var(--cor-borda); }
+
+#containerBotoesAcao { display: flex; justify-content: center; gap: 12px; margin-top: 1rem; flex-wrap: wrap;}
+#containerBotoesAcao .btn { font-size: 0.9rem; padding: 0.4rem 0.9rem; }
+
+/* Exibição Plano Refinada */
+#planoSemanalContainer, #historicoPlanos, #historicoMedidas { margin-top: 25px; }
+#historicoPlanos .card-body, #historicoMedidas .card-body { min-height: 120px; max-height: 450px; overflow-y: auto; background-color: #fdfdfe; /* Fundo quase branco */ padding: 1rem 1.25rem; border: 1px solid var(--cor-borda); border-radius: 6px; }
+.dia-treino {
+    background-color: var(--cor-fundo-container); border-radius: 8px;
+    box-shadow: var(--sombra-leve); padding: 30px; margin-bottom: 35px;
+    border: 1px solid var(--cor-borda);
+    border-left: 5px solid var(--cor-destaque-secundario); /* Destaque lateral */
+    transition: box-shadow 0.3s ease;
+}
+.dia-treino:hover { box-shadow: var(--sombra-media); }
+
+/* O título do dia (H4) herdará o estilo itálico de h4,h5,h6 */
+.dia-treino h4.nome-dia { /* Mudança para aplicar estilo a H4 com classe específica se houver*/
+    color: var(--cor-destaque-primario); font-size: 1.6em; font-weight: 600; /* Mantém peso 600 */
+    margin: 0 0 20px 0; padding-bottom: 12px; border-bottom: 1px solid var(--cor-borda);
+}
+
+.item-treino {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+    padding: 18px 10px; border-bottom: 1px dashed var(--cor-borda); /* Linha tracejada */
+    gap: 15px; position: relative; transition: background-color 0.2s ease;
+}
+.item-treino:last-child { border-bottom: none; }
+.item-treino:hover { background-color: #f8f9fa; } /* Fundo sutil no hover */
+
+.info-exercicio { flex-grow: 1; min-width: 250px; }
+.nome-exercicio { font-size: 1.15em; font-weight: 600; color: var(--cor-texto-principal); display: block; margin-bottom: 5px; } /* Nome do exercício com peso 600 */
+.nome-exercicio .tecnica-label {
+     display: inline-block; background-color: var(--cor-fundo-tecnica); color: var(--cor-texto-tecnica);
+     padding: 3px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; margin-right: 10px; vertical-align: middle; border: 1px solid var(--cor-borda-tecnica);
+}
+.detalhes-exercicio { font-size: 0.95em; color: var(--cor-texto-secundario); margin-left: 0; /* Sem margem extra */ display: block; margin-top: 4px; }
+.detalhes-exercicio strong { color: var(--cor-texto-principal); font-weight: 500; margin-right: 3px; } /* Detalhes com peso 500 */
+.detalhes-exercicio span { margin-right: 10px; } /* Espaço entre detalhes */
+
+.acoes { display: flex; gap: 10px; flex-shrink: 0; align-items: center; }
+.botao-acao {
+    background-color: transparent; color: var(--cor-texto-secundario);
+    padding: 5px 10px; border: 1px solid var(--cor-borda); border-radius: 5px;
+    cursor: pointer; font-size: 0.85em; transition: all 0.2s ease; white-space: nowrap;
+}
+.botao-acao:hover { background-color: var(--cor-fundo-elemento-hover); color: var(--cor-texto-principal); border-color: #adb5bd; }
+.botao-acao i { margin-right: 5px; }
+.botao-acao.editar:hover { color: var(--cor-destaque-primario); border-color: var(--cor-destaque-primario); }
+.botao-acao.substituir:hover { color: var(--cor-aviso); border-color: var(--cor-aviso); }
+
+.instrucao-tecnica {
+    font-size: 0.9em; color: var(--cor-texto-instrucao); background-color: var(--cor-fundo-instrucao);
+    padding: 10px 15px; margin-top: 10px; border-radius: 5px; width: 100%; box-sizing: border-box;
+    border: 1px solid var(--cor-borda-instrucao); border-left-width: 4px;
+}
+.observacoes-gerais {
+    margin-top: 2rem; padding: 1.2rem 1.5rem; background-color: #e9ecef; /* Fundo cinza claro */
+    border-radius: 6px; border: 1px solid var(--cor-borda); color: var(--cor-texto-principal);
+}
+/* Título H5 em observações herdará itálico */
+.observacoes-gerais h5 { color: var(--cor-destaque-primario); font-weight: 600; margin-bottom: 0.8rem; } /* Peso 600 */
+.observacoes-gerais ul { padding-left: 20px; }
+
+/* Info plano removida */
+.info-plano { display: none; }
+
+/* Histórico */
+.historico-item { /* Estilo unificado para itens de histórico */
+    padding: .7rem .5rem; border-bottom: 1px dashed var(--cor-borda); font-size: 0.95em;
+    color: var(--cor-texto-secundario); display: flex; justify-content: space-between; align-items: center;
+    transition: background-color 0.2s ease; border-radius: 4px;
+}
+.historico-item:last-child { border-bottom: none; }
+.historico-item:hover { background-color: var(--cor-fundo-elemento-hover); }
+.historico-item strong { color: var(--cor-texto-principal); font-weight: 500; } /* Peso 500 */
+.historico-item button { flex-shrink: 0; margin-left: 10px; font-size: 0.8em; padding: .1rem .4rem; }
+.historico-vazio { text-align: center; color: var(--cor-texto-secundario); font-style: italic; padding: 25px; font-size: 0.95em; }
+.card { background-color: var(--cor-fundo-container); border: 1px solid var(--cor-borda); border-radius: 8px; box-shadow: var(--sombra-leve); }
+.card-header { background-color: #f8f9fa; /* Cinza claro cabeçalho */ border-bottom: 1px solid var(--cor-borda); color: var(--cor-destaque-primario); padding: 0.9rem 1.25rem; }
+/* Título H5 no card-header herdará itálico */
+.card-header h5 { margin-bottom: 0; font-weight: 600; font-size: 1.1rem; } /* Peso 600 */
+#historicoHeaderActions { margin-bottom: 1rem; text-align: center; }
+
+/* Estilos de Evolução (mantidos, mas não mais usados diretamente na lista de histórico de medidas) */
+.historico-item .evolucao { font-size: 0.8em; margin-left: 5px; font-weight: bold; white-space: nowrap; }
+.evolucao-positiva { color: var(--cor-sucesso); }
+.evolucao-negativa { color: var(--cor-erro); }
+.evolucao-neutra { color: var(--cor-texto-secundario); }
+.medida-valor { display: inline-block; min-width: 50px; text-align: right; }
+.medida-label { font-weight: 500; color: var(--cor-texto-principal); } /* Peso 500 */
+.historico-detalhes { font-size: 0.85em; display: block; margin-left: 10px; margin-top: 3px; color: var(--cor-texto-secundario); }
+.historico-detalhes span { margin-right: 12px; }
+.evolucao .bi { font-size: 0.9em; vertical-align: middle; }
+
+/* Loader */
+.loader { width: 1.8rem; height: 1.8rem; border: .25em solid rgba(0,0,0,.1); border-top-color: var(--cor-destaque-secundario); border-radius: 50%; display: inline-block; animation: spin .75s linear infinite; margin-right: .7rem; vertical-align: text-bottom; /* Alinhamento melhorado */ }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Botões Bootstrap Aprimorados */
+.btn {
+    transition: all 0.25s ease; border-radius: 6px; /* Bordas mais arredondadas */
+    padding: 0.5rem 1.2rem; /* Padding padrão */ font-weight: 500; letter-spacing: 0.5px; /* Peso 500 */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.btn:active { transform: scale(0.97); box-shadow: none; }
+.btn-lg { padding: 0.7rem 1.5rem; font-size: 1.1rem; }
+.btn-sm { padding: 0.3rem 0.8rem; font-size: 0.85rem; }
+
+.btn-primary { background-color: var(--cor-destaque-primario); border-color: var(--cor-destaque-primario); color: white; }
+.btn-primary:hover { background-color: #004a99; border-color: #004186; color: white; box-shadow: 0 3px 7px rgba(0, 86, 179, 0.3); }
+
+.btn-secondary { background-color: #6c757d; border-color: #6c757d; color: white; }
+.btn-secondary:hover { background-color: #5a6268; border-color: #545b62; color: white; box-shadow: 0 3px 7px rgba(108, 117, 125, 0.2); }
+
+.btn-success { background-color: var(--cor-destaque-secundario); border-color: var(--cor-destaque-secundario); color: white; }
+.btn-success:hover { background-color: #218838; border-color: #1e7e34; color: white; box-shadow: 0 3px 7px rgba(40, 167, 69, 0.3); }
+
+.btn-warning { background-color: var(--cor-aviso); border-color: var(--cor-aviso); color: #212529; }
+.btn-warning:hover { background-color: #e0a800; border-color: #d39e00; color: #212529; box-shadow: 0 3px 7px rgba(255, 193, 7, 0.3); }
+
+.btn-danger { background-color: var(--cor-erro); border-color: var(--cor-erro); color: white; }
+.btn-danger:hover { background-color: #c82333; border-color: #bd2130; color: white; box-shadow: 0 3px 7px rgba(220, 53, 69, 0.3); }
+
+.btn-info { background-color: var(--cor-info); border-color: var(--cor-info); color: white; }
+.btn-info:hover { background-color: #138496; border-color: #117a8b; color: white; box-shadow: 0 3px 7px rgba(23, 162, 184, 0.3); }
+
+.btn-outline-primary { color: var(--cor-destaque-primario); border-color: var(--cor-destaque-primario); }
+.btn-outline-primary:hover { background-color: var(--cor-destaque-primario); color: white; }
+.btn-outline-secondary { color: var(--cor-texto-secundario); border-color: var(--cor-texto-secundario); }
+.btn-outline-secondary:hover { background-color: var(--cor-texto-secundario); color: white; } /* Texto branco no hover */
+/* Outros outlines podem seguir o padrão */
+
+/* Modal */
+.modal-content { background-color: var(--cor-fundo-container); color: var(--cor-texto-principal); border: none; border-radius: 8px; box-shadow: var(--sombra-media); }
+.modal-header { border-bottom: 1px solid var(--cor-borda); color: var(--cor-destaque-primario); padding: 1rem 1.5rem; }
+/* Título do modal (H5) herdará itálico */
+.modal-title { font-weight: 600; font-size: 1.2rem;} /* Peso 600 */
+.modal-body { padding: 1.5rem; max-height: 70vh; overflow-y: auto; }
+.modal-footer { border-top: 1px solid var(--cor-borda); padding: 1rem 1.5rem; background-color: #f8f9fa; border-radius: 0 0 8px 8px;}
+.btn-close { filter: invert(0.5) sepia(1) saturate(1) hue-rotate(175deg); } /* Ajuste cor do X */
+
+/* Modal de Dados Cadastrais */
+#modalDadosCadastro .modal-dialog, #modalDetalhesAvaliacao .modal-dialog, #modalSubstituirExercicio .modal-dialog { max-width: 800px; } /* Modal mais largo */
+#modalDadosCadastro dl, #modalDetalhesAvaliacao dl { margin-bottom: 1.5rem; } /* Estilo DL para modais */
+#modalDadosCadastro dt, #modalDetalhesAvaliacao dt { font-weight: 600; color: var(--cor-destaque-primario); margin-bottom: 0.2rem; font-size: 0.95em;} /* Peso 600 */
+#modalDadosCadastro dd, #modalDetalhesAvaliacao dd { margin-left: 0; margin-bottom: 0.8rem; color: var(--cor-texto-principal); } /* Ajuste dd */
+/* Título H5 no modal de dados herdará itálico */
+#modalDadosCadastro h5 { font-weight: 600; margin-top: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--cor-borda); color: var(--cor-destaque-secundario);} /* Peso 600 */
+#modalDadosCadastro .medidas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem 1.5rem; }
+#modalDadosCadastro .medida-item strong { color: var(--cor-texto-secundario); font-weight: 500; } /* Peso 500 */
+
+/* Ajustes Finos */
+small, .small { color: var(--cor-texto-secundario); font-size: 0.875em; }
+hr { border-top: 1px solid var(--cor-borda); opacity: 0.7; }
+/* H5 já estilizado acima para ter itálico (herança de h4,h5,h6) */
+/* h5 { font-weight: 600; } /* Removido pois h4,h5,h6 já define itálico */
+
+/* Feedback Section */
+ #feedbackPlanoSection {
+     margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--cor-borda);
+     background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px;
+ }
+ /* Título H5 na seção de feedback herdará itálico */
+#feedbackPlanoSection h5 { color: var(--cor-texto-principal); font-weight: 600; } /* Peso 600 */
+#feedbackButtonsContainer { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+#feedbackButtonsContainer .btn { font-size: 0.9rem; }
+
+ #botaoImprimir, #botaoRegerar { margin-top: 1.5rem; }
+
+
+/* ========================== */
+/* Estilos de Impressão FINAL */
+/* ========================== */
+@media print {
+    body { background-color: #fff !important; color: #000 !important; padding: 0 !important; margin: 0 !important; font-size: 10pt; font-family: Arial, sans-serif; }
+    .container { max-width: 100% !important; width: 100% !important; margin: 0 !important; padding: 10px !important; border: none !important; box-shadow: none !important; background-color: #fff !important; border-top: none !important; }
+    .nav, #authDiv, #userInfo, #mainTabs, #gerarTreino, #cadastro, #historicoHeaderActions, /* Esconde botão novo */ #botaoVerDadosCadastro, .modal, .modal-backdrop, #containerBotoesAcao, .msg, #feedbackPlanoSection, .acoes, #alunoSelecionadoInfo, #buscaResultados /* Esconde mais elementos */ { display: none !important; }
+    #mainAppDiv, #plano, #areaImprimivel, #planoSemanalContainer, #historico, #historicoPlanos, #historicoMedidas /* Garante que histórico seja visível (se necessário) */ { display: block !important; }
+    #planoSemanalContainer { margin-top: 0 !important; }
+    #mainAppDiv h2 { font-size: 1.8rem; text-align: left !important; border-bottom: 1px solid #000 !important; margin-bottom: 1rem !important; padding-bottom: 5px !important; color: #000 !important;}
+    .dia-treino { border: 1px solid #aaa !important; background-color: #fff !important; page-break-inside: avoid !important; color: #000 !important; box-shadow: none !important; padding: 15px !important; margin-bottom: 20px !important; border-left: 3px solid #000 !important; }
+    .item-treino { border-bottom: 1px dashed #ccc !important; padding: 10px 0 !important;}
+    .observacoes-gerais { border: 1px solid #ccc !important; background-color: #f0f0f0 !important; color: #000 !important; padding: 10px !important; margin-top: 1rem !important; }
+    /* Títulos H1-H5 na impressão: Apenas negrito */
+    h1, h2, h3, h4, h5 { color: #000 !important; background: none !important; font-weight: bold !important; font-style: normal !important; /* Garante que não fique itálico na impressão */ }
+    strong { color: #000 !important; font-weight: bold !important; } /* Mantém strong negrito */
+    .dia-treino h4, .nome-dia { font-size: 1.3rem; border-bottom: 1px solid #666 !important; color: #000 !important; padding-bottom: 8px !important; margin-bottom: 10px !important; font-weight: bold !important; font-style: normal !important;}
+    .nome-exercicio { font-size: 1.05em; font-weight: bold !important; font-style: normal !important; }
+    .detalhes-exercicio { color: #333 !important; font-size: 0.9em;}
+    .detalhes-exercicio strong { color: #000 !important; font-weight: bold !important; }
+    a { text-decoration: none !important; color: #000 !important; }
+     .tecnica-label { background-color: #eee !important; color: #000 !important; border: 1px solid #ccc !important; padding: 2px 5px !important; font-size: 0.75em !important; font-weight: bold !important; font-style: normal !important;}
+     .instrucao-tecnica { background-color: #f0f0f0 !important; color: #333 !important; border: 1px dashed #bbb !important; padding: 8px !important; font-size: 0.85em !important;}
+     :root { /* Redefinições menos importantes na impressão */
+         --cor-fundo-body: #fff; --cor-fundo-container: #fff; --cor-texto-principal: #000;
+        --cor-texto-secundario: #333; --cor-borda: #ccc; --cor-destaque-primario: #000;
+        --cor-destaque-secundario: #000; --cor-fundo-elemento-hover: #eee;
+    }
+     button { display: none !important; } /* Garante que botões sumam */
+     * { box-shadow: none !important; text-shadow: none !important; } /* Remove sombras */
+}
+/* --- FIM CSS IMPRESSÃO --- */

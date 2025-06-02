@@ -1,0 +1,14 @@
+aluno_idade,num_total_exercicios,num_dias,avg_ex_por_dia,prop_compostos,num_tec_biset,num_tec_piramide,feedback_score,aluno_nivel_avancado,aluno_nivel_intermediario,aluno_sexo_feminino,aluno_sexo_masculino,aluno_foco_gluteo,aluno_foco_hipertrofia,aluno_lesoes_,dia_key_a,dia_key_b,dia_key_c,dia_key_d
+23,28.0,4.0,7.0,0.0,2.0,3.0,4,False,True,False,True,False,True,True,False,True,False,False
+23,28.0,4.0,7.0,0.0,2.0,3.0,4,False,True,False,True,False,True,True,True,False,False,False
+23,28.0,4.0,7.0,0.0,2.0,3.0,4,False,True,False,True,False,True,True,False,False,False,True
+23,28.0,4.0,7.0,0.0,2.0,3.0,4,False,True,False,True,False,True,True,False,False,True,False
+45,26.0,3.0,8.67,0.0,4.0,5.0,4,True,False,True,False,True,False,True,False,False,True,False
+45,26.0,3.0,8.67,0.0,4.0,5.0,1,True,False,True,False,True,False,True,False,True,False,False
+23,27.0,4.0,6.75,0.0,2.0,3.0,4,False,True,False,True,False,True,True,False,False,True,False
+23,27.0,4.0,6.75,0.0,2.0,3.0,4,False,True,False,True,False,True,True,True,False,False,False
+23,27.0,4.0,6.75,0.0,2.0,3.0,4,False,True,False,True,False,True,True,False,False,False,True
+23,27.0,4.0,6.75,0.0,3.0,3.0,4,False,True,False,True,False,True,True,True,False,False,False
+23,27.0,4.0,6.75,0.0,3.0,3.0,4,False,True,False,True,False,True,True,False,False,False,True
+23,27.0,4.0,6.75,0.0,3.0,3.0,4,False,True,False,True,False,True,True,False,False,True,False
+23,27.0,4.0,6.75,0.0,3.0,3.0,4,False,True,False,True,False,True,True,False,True,False,False

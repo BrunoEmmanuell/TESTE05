@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Instrutor - VirtuFit</title> <style>
+        /* Estilos básicos (sem alterações) */
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 400px;
+            margin: 40px auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        #usuario {
+             width: 100%;
+        }
+        #senha,
+        #confirmar_senha {
+            width: 60%;
+        }
+        button {
+            background-color: #28a745; /* Verde */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        /* Estilo para mensagens de feedback (opcional) */
+        .feedback {
+             margin-top: 15px;
+             padding: 10px;
+             border-radius: 4px;
+             text-align: center;
+        }
+        .feedback.success {
+             background-color: #d4edda;
+             color: #155724;
+             border: 1px solid #c3e6cb;
+        }
+         .feedback.error {
+             background-color: #f8d7da;
+             color: #721c24;
+             border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cadastrar Novo Instrutor</h1>
+
+    <div id="feedback-message" class="feedback" style="display: none;"></div>
+
+    <form id="register-form" action="http://127.0.0.1:8000/registrar" method="post">
+        <div>
+            <label for="usuario">Usuário (Nome ou Número):</label>
+            <input type="text" id="usuario" name="identificador_instrutor" placeholder="Digite nome ou número para login" required>
+        </div>
+
+        <div>
+            <label for="senha">Senha:</label>
+             <input type="password" id="senha" name="senha_instrutor" placeholder="Digite a senha" required>
+        </div>
+
+        <div>
+            <label for="confirmar_senha">Confirmar Senha:</label>
+             <input type="password" id="confirmar_senha" name="confirmar_senha_instrutor" placeholder="Confirme a senha" required>
+        </div>
+
+        <button type="submit">Cadastrar Instrutor</button>
+
+    </form>
+
+    <script>
+        const form = document.getElementById('register-form');
+        const feedbackDiv = document.getElementById('feedback-message');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            feedbackDiv.style.display = 'none'; // Esconde mensagens antigas
+            feedbackDiv.className = 'feedback'; // Reseta classes CSS
+
+            const formData = new FormData(form);
+            const actionUrl = form.action;
+
+            try {
+                const response = await fetch(actionUrl, {
+                    method: 'POST',
+                    body: formData // Envia como form data
+                });
+
+                const result = await response.json(); // Tenta pegar a resposta JSON
+
+                if (response.ok) { // Status 2xx (ex: 201 Created)
+                    feedbackDiv.textContent = result.message || 'Cadastro realizado com sucesso!';
+                    feedbackDiv.classList.add('success');
+                    form.reset(); // Limpa o formulário
+                } else { // Status 4xx ou 5xx
+                    // Tenta pegar o 'detail' do erro da API FastAPI, senão usa uma msg genérica
+                    feedbackDiv.textContent = `Erro ${response.status}: ${result.detail || 'Ocorreu um erro no cadastro.'}`;
+                    feedbackDiv.classList.add('error');
+                }
+            } catch (error) {
+                console.error("Erro ao enviar formulário:", error);
+                feedbackDiv.textContent = 'Erro de conexão ou resposta inválida da API.';
+                feedbackDiv.classList.add('error');
+            } finally {
+                feedbackDiv.style.display = 'block'; // Mostra a mensagem de feedback
+            }
+        });
+    </script>
+
+</body>
+</html>

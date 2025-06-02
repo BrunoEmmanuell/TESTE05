@@ -1,0 +1,14 @@
+{
+    "bonus_foco_dia": 4.0,
+    "bonus_foco_aluno": 3.5,
+    "peso_prioridade": 0.6000000000000001,
+    "bonus_composto": 0.75,
+    "penalidade_isolado": -0.5,
+    "bonus_unilateral_assimetria": 0.5,
+    "penalidade_repeticao_geral": -5.0,
+    "bonus_gc_sobrepeso": 1.75,
+    "bonus_gc_obesidade": 3.0,
+    "fator_ajuste_foco_imc": 1.1,
+    "assimetria_limiar_abs_cm": 1.5,
+    "assimetria_limiar_rel": 0.07
+}

@@ -1,0 +1,11 @@
+fastapi 
+uvicorn[standard]
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+pydantic[email]
+optuna
+psycopg2-binary
+python-dotenv
+xgboost
+plotly
